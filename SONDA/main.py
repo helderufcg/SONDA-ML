@@ -172,6 +172,7 @@ def main():
                 t1 = time.time()
                 for load in range(min_traffic_load, max_traffic_load, traffic_load_step):
                         r = pool.apply_async(simulation.FixedBlockages, args=(load, n_blockages, n_nodes, links, A, N, T, network_type, wavelength_bandwidth, consider_ase_noise, damp, n_cores, mcf, consider_xt), callback=load_bp.append)
+                        #load_bp.append(simulation.FixedBlockages(load, n_blockages, n_nodes, links, A, N, T, network_type, wavelength_bandwidth, consider_ase_noise, damp, n_cores, mcf, consider_xt))
                 pool.close()
                 pool.join()
                 t2 = time.time()    
